@@ -1,240 +1,163 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #4a4a4a;
-    line-height: 1.6;
-    /* Crochet-themed background: Subtle repeating pattern mimicking yarn stitches */
-    background: repeating-linear-gradient(
-        45deg,
-        #f0e6d2 0px,
-        #f0e6d2 10px,
-        #e8d5b7 10px,
-        #e8d5b7 20px
-    ), linear-gradient(
-        to bottom,
-        #d4e6f1 0%,
-        #f8f9fa 50%,
-        #d4e6f1 100%
-    );
-    background-size: 20px 20px, cover;
-    background-attachment: fixed;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crochet Creations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/736x/23/60/5b/23605bf2e6d44cac8a82cd624c2f1f4a.jpg'); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #333;
+        }
 
-/* Header */
-header {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-header h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5em;
-    color: #8e44ad; /* Lavender accent */
-    margin: 0;
-}
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 12px;
+        }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0 0;
-}
+        nav a {
+            color: #444;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
+        .section {
+            background: rgba(255, 255, 255, 0.88);
+            margin: 40px auto;
+            padding: 30px;
+            width: 85%;
+            border-radius: 12px;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #4a4a4a;
-    font-weight: bold;
-    transition: color 0.3s;
-}
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
 
-nav a:hover {
-    color: #8e44ad;
-}
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
 
-#cart {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #27ae60;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
 
-/* Sections */
-section {
-    padding: 50px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        .review {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
 
-section h2 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2em;
-    color: #27ae60; /* Mint green accent */
-    text-align: center;
-    margin-bottom: 20px;
-}
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
 
-.section-image {
-    display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-    max-width: 100%;
-}
+<header>Crochet Creations</header>
 
-/* Products Gallery */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
+<nav>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-.gallery .item {
-    text-align: center;
-    max-width: 250px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h2>About</h2>
+    <p>
+        Welcome to Crochet Creations! Every piece you see here is handmade with love,
+        crafted carefully with vibrant colors and soft yarns. Whether you're looking
+        for home décor, cute accessories, or unique gifts — we create custom crochet
+        items just for you.
+    </p>
+</section>
 
-.gallery img {
-    width: 100%;
-    border-radius: 10px;
-}
+<!-- PRODUCTS -->
+<section id="products" class="section">
+    <h2>Our Crochet Products</h2>
 
-.add-to-cart {
-    background-color: #8e44ad;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    margin-top: 10px;
-    transition: background-color 0.3s;
-}
+    <div class="products-grid">
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/3d/2e/ef/3d2eef2f0ad43346620c3069fc9f7b20.jpg" alt="Crochet Toy">
+            <h3>Crochet Amigurumi</h3>
+        </div>
 
-.add-to-cart:hover {
-    background-color: #6c3483;
-}
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/a4/60/8c/a4608ce5c1f550584d9a741b93d7c5b1.jpg" alt="Crochet Bag">
+            <h3>Crochet Tote Bag</h3>
+        </div>
 
-/* Cost List */
-#cost ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
+        <div class="product">
+            <img src="https://i.pinimg.com/736x/1b/94/46/1b94460746a1a3c6ebbe097e24fa9bc1.jpg" alt="Crochet Coaster">
+            <h3>Crochet Coasters</h3>
+        </div>
+    </div>
+</section>
 
-#cost li {
-    margin: 10px 0;
-    font-size: 1.1em;
-}
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+    <h2>Reviews</h2>
 
-/* Contact Form */
-form {
-    max-width: 500px;
-    margin: 0 auto;
-}
+    <div class="review">
+        ⭐⭐⭐⭐⭐  
+        <p>"Absolutely loved the crochet doll! The details are perfect!" – Anusha</p>
+    </div>
 
-form label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-}
+    <div class="review">
+        ⭐⭐⭐⭐⭐  
+        <p>"Beautiful and neatly made products. I ordered twice already!" – Priya</p>
+    </div>
 
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
+    <div class="review">
+        ⭐⭐⭐⭐⭐  
+        <p>"Great quality and delivered on time. Highly recommended!" – Megha</p>
+    </div>
+</section>
 
-form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #8e44ad;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>📩 Email: crochetcreations@gmail.com</p>
+    <p>📱 Instagram: @crochet_creations_official</p>
+    <p>🛍 Custom orders accepted!</p>
+</section>
 
-form button:hover {
-    background-color: #6c3483;
-}
+<footer>
+    &copy; 2025 Crochet Creations. All Rights Reserved.
+</footer>
 
-/* Reviews */
-.reviews {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.review {
-    max-width: 300px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.review cite {
-    font-style: italic;
-    color: #8e44ad;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #4a4a4a;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
-    }
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-    .gallery {
-        flex-direction: column;
-        align-items: center;
-    }
-    .reviews {
-        flex-direction: column;
-        align-items: center;
-    }
-    #cart {
-        position: static;
-        margin-top: 10px;
-    }
-}
+</body>
+</html>
