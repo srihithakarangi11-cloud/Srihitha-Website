@@ -1,319 +1,205 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Cozy Stitch - Handmade Crochet Goods</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        /* Apply Inter font and set base styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #444; /* Dark gray text */
-            /* Crochet-themed background: Using a tileable pattern image */
-            background-image: url('https://placehold.co/100x100/f5f5f4/b8b8b8?text='); /* Placeholder for a subtle light texture */
-            background-repeat: repeat;
-            background-color: #f5f5f4; /* Fallback color (stone-100) */
-        }
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #4a4a4a;
+    line-height: 1.6;
+    /* Crochet-themed background: Subtle repeating pattern mimicking yarn stitches */
+    background: repeating-linear-gradient(
+        45deg,
+        #f0e6d2 0px,
+        #f0e6d2 10px,
+        #e8d5b7 10px,
+        #e8d5b7 20px
+    ), linear-gradient(
+        to bottom,
+        #d4e6f1 0%,
+        #f8f9fa 50%,
+        #d4e6f1 100%
+    );
+    background-size: 20px 20px, cover;
+    background-attachment: fixed;
+}
 
-        /* Ensure smooth scrolling for navigation links */
-        html {
-            scroll-behavior: smooth;
-        }
+/* Header */
+header {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        /* Specific styling for the background to make it subtle */
-        .crochet-bg-texture {
-             /* A very light, subtle pattern */
-            background-color: #fcfcfc;
-            background-image: url('https://images.unsplash.com/photo-1621570183183-f368f5127008?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fGVufDB8fHx8fA%3D%3D');
-            background-repeat: repeat;
-            background-size: 100px; /* Control tile size */
-        }
-    </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'crochet-primary': '#d97706', // Amber-700 for accent
-                        'crochet-light': '#fef3c7',   // Amber-100 for light background
-                        'crochet-dark': '#78350f',    // Amber-900 for dark accents/text
-                    }
-                }
-            }
-        }
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+    color: #8e44ad; /* Lavender accent */
+    margin: 0;
+}
 
-        // Simple function for navigation scroll
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    </script>
-</head>
-<body class="bg-stone-50 text-stone-800">
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
 
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 bg-white shadow-xl">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-extrabold text-crochet-primary tracking-tight">
-                The Cozy Stitch
-            </h1>
-            <div class="space-x-4 hidden md:flex">
-                <a href="#about" onclick="scrollToSection('about')" class="text-stone-700 hover:text-crochet-primary transition duration-300 font-medium">About</a>
-                <a href="#samples" onclick="scrollToSection('samples')" class="text-stone-700 hover:text-crochet-primary transition duration-300 font-medium">Gallery</a>
-                <a href="#cost" onclick="scrollToSection('cost')" class="text-stone-700 hover:text-crochet-primary transition duration-300 font-medium">Pricing</a>
-                <a href="#reviews" onclick="scrollToSection('reviews')" class="text-stone-700 hover:text-crochet-primary transition duration-300 font-medium">Reviews</a>
-                <a href="#contact" onclick="scrollToSection('contact')" class="px-4 py-1 border border-crochet-primary text-crochet-primary rounded-full hover:bg-crochet-primary hover:text-white transition duration-300">Contact</a>
-            </div>
-            <!-- Mobile Menu Button (Hamburger Icon) -->
-            <button class="md:hidden text-crochet-dark focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </nav>
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-t border-stone-100">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-                <a href="#about" onclick="scrollToSection('about'); document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 text-stone-700 hover:text-crochet-primary">About</a>
-                <a href="#samples" onclick="scrollToSection('samples'); document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 text-stone-700 hover:text-crochet-primary">Gallery</a>
-                <a href="#cost" onclick="scrollToSection('cost'); document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 text-stone-700 hover:text-crochet-primary">Pricing</a>
-                <a href="#reviews" onclick="scrollToSection('reviews'); document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 text-stone-700 hover:text-crochet-primary">Reviews</a>
-                <a href="#contact" onclick="scrollToSection('contact'); document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 text-crochet-primary font-medium">Contact</a>
-            </div>
-        </div>
-    </header>
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+nav a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-weight: bold;
+    transition: color 0.3s;
+}
 
-        <!-- Hero Section -->
-        <section class="bg-crochet-light p-10 rounded-xl shadow-2xl mb-16 text-center crochet-bg-texture">
-            <h2 class="text-4xl sm:text-5xl font-extrabold text-crochet-dark mb-4">
-                Handmade Warmth, One Stitch at a Time.
-            </h2>
-            <p class="text-xl text-stone-700 max-w-3xl mx-auto mb-6">
-                Discover unique, custom-made crochet creations crafted with love and the softest yarns.
-            </p>
-            <a href="#samples" class="inline-block bg-crochet-primary text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-crochet-dark transition duration-300 transform hover:scale-105">
-                Explore Our Collection
-            </a>
-        </section>
+nav a:hover {
+    color: #8e44ad;
+}
 
-        <!-- 1. About Section -->
-        <section id="about" class="py-12 mb-16">
-            <h2 class="text-4xl font-bold text-center text-crochet-primary mb-10">
-                Our Story
-            </h2>
-            <div class="md:grid md:grid-cols-2 md:gap-12 items-center bg-white p-8 rounded-xl shadow-lg">
-                <div class="mb-6 md:mb-0">
-                    <!-- Placeholder image for the 'About' section -->
-                    <img src="https://placehold.co/600x400/fecaca/9f1239?text=Yarn+and+Hooks" alt="A close-up of yarn and crochet hooks" class="rounded-xl shadow-md w-full h-auto object-cover">
-                </div>
-                <div>
-                    <p class="text-lg mb-4 leading-relaxed">
-                        The Cozy Stitch was born from a passion for turning simple yarn into treasured pieces. Every item is meticulously hand-crocheted, focusing on quality, durability, and a unique design that brings joy. We believe in slow fashion—creating items that are meant to last and be loved for years.
-                    </p>
-                    <p class="text-lg leading-relaxed border-l-4 border-crochet-primary pl-4 italic text-stone-600">
-                        "More than just a hobby, crochet is an art form. We pour our hearts into every loop and knot."
-                    </p>
-                </div>
-            </div>
-        </section>
+/* Sections */
+section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        <!-- 2. Sample Crochets (Gallery) -->
-        <section id="samples" class="py-12 mb-16 bg-crochet-light p-8 rounded-xl crochet-bg-texture">
-            <h2 class="text-4xl font-bold text-center text-crochet-dark mb-10">
-                Our Handmade Gallery
-            </h2>
-            <p class="text-center text-lg text-stone-700 mb-8">
-                A peek at some of our recent, lovingly crafted items.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Sample 1 -->
-                <div class="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/400x300/FDBA74/8f3b14?text=Cozy+Scarf" alt="Handmade Cozy Scarf" class="rounded-lg mb-4 w-full h-48 object-cover">
-                    <h3 class="text-xl font-semibold text-crochet-primary">The Winter Bloom Scarf</h3>
-                    <p class="text-stone-600 mt-1">Chunky yarn, perfect for cold weather.</p>
-                    <p class="text-2xl font-bold text-crochet-dark mt-3">$45.00</p>
-                </div>
+section h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+    color: #27ae60; /* Mint green accent */
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-                <!-- Sample 2 -->
-                <div class="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/400x300/FEE2E2/9f1239?text=Amigurumi+Bear" alt="Amigurumi Toy Bear" class="rounded-lg mb-4 w-full h-48 object-cover">
-                    <h3 class="text-xl font-semibold text-crochet-primary">Amigurumi Teddy</h3>
-                    <p class="text-stone-600 mt-1">Soft cotton yarn, safety eyes, collectible.</p>
-                    <p class="text-2xl font-bold text-crochet-dark mt-3">$30.00</p>
-                </div>
+.section-image {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 100%;
+}
 
-                <!-- Sample 3 -->
-                <div class="bg-white p-5 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/400x300/D1D5DB/4b5563?text=Boho+Tote" alt="Bohemian Crochet Tote Bag" class="rounded-lg mb-4 w-full h-48 object-cover">
-                    <h3 class="text-xl font-semibold text-crochet-primary">The Sunny Day Tote</h3>
-                    <p class="text-stone-600 mt-1">Sturdy rope yarn, ideal for the market.</p>
-                    <p class="text-2xl font-bold text-crochet-dark mt-3">$65.00</p>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="#contact" class="inline-block bg-crochet-dark text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-crochet-primary transition duration-300">
-                    Request a Custom Order
-                </a>
-            </div>
-        </section>
+/* Samples Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 
-        <!-- 3. Cost (Pricing) Section -->
-        <section id="cost" class="py-12 mb-16">
-            <h2 class="text-4xl font-bold text-center text-crochet-primary mb-10">
-                Pricing & Custom Work
-            </h2>
-            <p class="text-center text-lg text-stone-700 mb-12">
-                We offer competitive pricing for quality handmade goods.
-            </p>
+.gallery .item {
+    text-align: center;
+    max-width: 200px;
+}
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pricing Card 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-crochet-primary text-center">
-                    <h3 class="text-2xl font-bold text-crochet-dark mb-2">Small Items</h3>
-                    <p class="text-4xl font-extrabold text-crochet-primary mb-4">$15 - $35</p>
-                    <p class="text-stone-600 mb-4">Hats, Coasters, Keychains, Small Amigurumi.</p>
-                    <ul class="text-left space-y-2 text-stone-700">
-                        <li class="flex items-center"><span class="text-crochet-primary mr-2">&#10003;</span> Quick turnaround</li>
-                        <li class="flex items-center"><span class="text-crochet-primary mr-2">&#10003;</span> Simple stitch patterns</li>
-                        <li class="flex items-center"><span class="text-crochet-primary mr-2">&#10003;</span> Yarn included</li>
-                    </ul>
-                </div>
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-                <!-- Pricing Card 2 (Featured) -->
-                <div class="bg-crochet-dark text-white p-8 rounded-xl shadow-2xl scale-105 transition duration-300">
-                    <p class="text-center text-sm font-semibold mb-2 text-crochet-light uppercase">Most Popular</p>
-                    <h3 class="text-3xl font-bold text-center mb-2">Medium Items</h3>
-                    <p class="text-5xl font-extrabold text-crochet-light text-center mb-4">$40 - $120</p>
-                    <p class="text-stone-200 mb-6 text-center">Scarves, Shawls, Small Blankets, Garments.</p>
-                    <ul class="text-left space-y-3 text-stone-200">
-                        <li class="flex items-center"><span class="text-crochet-light mr-2">&#10003;</span> Custom sizing available</li>
-                        <li class="flex items-center"><span class="text-crochet-light mr-2">&#10003;</span> Complex colorwork options</li>
-                        <li class="flex items-center"><span class="text-crochet-light mr-2">&#10003;</span> Upgraded yarn options</li>
-                        <li class="flex items-center"><span class="text-crochet-light mr-2">&#10003;</span> Gift wrapping included</li>
-                    </ul>
-                    <div class="text-center mt-6">
-                        <a href="#contact" class="inline-block bg-crochet-light text-crochet-dark font-bold py-2 px-6 rounded-full hover:bg-white transition duration-300">
-                            Start Custom Order
-                        </a>
-                    </div>
-                </div>
+/* Cost List */
+#cost ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
 
-                <!-- Pricing Card 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-crochet-primary text-center">
-                    <h3 class="text-2xl font-bold text-crochet-dark mb-2">Large Projects</h3>
-                    <p class="text-4xl font-extrabold text-crochet-primary mb-4">Quote Only</p>
-                    <p class="text-stone-600 mb-4">Full-sized blankets, intricate tapestries, detailed wearables.</p>
-                    <ul class="text-left space-y-2 text-stone-700">
-                        <li class="flex items-center"><span class="text-crochet-primary mr-2">&#10003;</span> Design consultation</li>
-                        <li class="flex items-center"><span class="text-crochet-primary mr-2">&#10003;</span> Detailed progress updates</li>
-                        <li class="flex items-center"><span class="text-crochet-primary mr-2">&#10003;</span> Timeline provided upfront</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+#cost li {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
 
+/* Contact Form */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
 
-        <!-- 4. Customer Reviews -->
-        <section id="reviews" class="py-12 mb-16 bg-crochet-light p-8 rounded-xl">
-            <h2 class="text-4xl font-bold text-center text-crochet-dark mb-10">
-                What Our Customers Say
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg italic border-l-4 border-crochet-primary">
-                    <p class="text-lg mb-4 text-stone-700">
-                        "The baby blanket I ordered was absolutely perfect. The quality of the stitching is superb, and the yarn is incredibly soft. It arrived quickly and was beautifully packaged!"
-                    </p>
-                    <p class="text-crochet-dark font-semibold not-italic">- Sarah K. (Texas)</p>
-                </div>
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
 
-                <!-- Review 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg italic border-l-4 border-crochet-primary">
-                    <p class="text-lg mb-4 text-stone-700">
-                        "I requested a custom beanie, and the finished product exceeded my expectations! The communication throughout the process was excellent. Highly recommend for unique gifts."
-                    </p>
-                    <p class="text-crochet-dark font-semibold not-italic">- James P. (Oregon)</p>
-                </div>
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
 
-                <!-- Review 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg italic border-l-4 border-crochet-primary">
-                    <p class="text-lg mb-4 text-stone-700">
-                        "The quality justifies the cost. You can genuinely feel the care and attention to detail in the amigurumi doll I bought. A truly cherished addition to my collection."
-                    </p>
-                    <p class="text-crochet-dark font-semibold not-italic">- Lisa M. (New York)</p>
-                </div>
-            </div>
-        </section>
+form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        <!-- 5. Contact Section -->
-        <section id="contact" class="py-12">
-            <h2 class="text-4xl font-bold text-center text-crochet-primary mb-10">
-                Get In Touch
-            </h2>
-            <div class="bg-white p-10 rounded-xl shadow-2xl max-w-2xl mx-auto">
-                <p class="text-center text-lg text-stone-700 mb-8">
-                    Ready for your custom piece? Fill out the form below or reach out directly.
-                </p>
-                <form onsubmit="event.preventDefault(); showMessage()">
-                    <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-crochet-dark mb-1">Name</label>
-                        <input type="text" id="name" required class="w-full p-3 border border-stone-300 rounded-lg focus:ring-crochet-primary focus:border-crochet-primary transition duration-300">
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-crochet-dark mb-1">Email</label>
-                        <input type="email" id="email" required class="w-full p-3 border border-stone-300 rounded-lg focus:ring-crochet-primary focus:border-crochet-primary transition duration-300">
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block text-sm font-medium text-crochet-dark mb-1">Your Project/Message</label>
-                        <textarea id="message" rows="4" required class="w-full p-3 border border-stone-300 rounded-lg focus:ring-crochet-primary focus:border-crochet-primary transition duration-300"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-crochet-primary text-white font-bold py-3 px-10 rounded-full shadow-md hover:bg-crochet-dark transition duration-300">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
+form button:hover {
+    background-color: #6c3483;
+}
 
-                <div id="contact-message" class="hidden mt-6 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg">
-                    <p class="font-bold">Message Sent!</p>
-                    <p>Thank you for reaching out. We will get back to you soon regarding your query!</p>
-                </div>
+/* Reviews */
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 
-                <p class="text-center text-sm mt-8 text-stone-500">
-                    Or email us directly at: <a href="mailto:info@cozystitch.com" class="text-crochet-primary hover:underline">info@cozystitch.com</a>
-                </p>
-            </div>
-        </section>
+.review {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
-    </main>
+.review cite {
+    font-style: italic;
+    color: #8e44ad;
+}
 
-    <!-- Footer -->
-    <footer class="bg-crochet-dark text-white py-8 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 The Cozy Stitch. All rights reserved.</p>
-            <p class="text-sm mt-2 text-stone-300">Handmade with love and a lot of yarn.</p>
-        </div>
-    </footer>
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #4a4a4a;
+}
 
-    <script>
-        // JS function to show a confirmation message on form submission
-        function showMessage() {
-            const messageBox = document.getElementById('contact-message');
-            messageBox.classList.remove('hidden');
-            setTimeout(() => {
-                messageBox.classList.add('hidden');
-                // Clear the form fields
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('message').value = '';
-            }, 3000); // Hide after 3 seconds
-        }
-    </script>
-</body>
-</html>
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .reviews {
+        flex-direction: column;
+        align-items: center;
+    }
+}
