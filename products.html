@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clothify — Products</title>
+  <style>
+    :root{--accent:#8b5e3c;--bg:#faf7f4;--card:#fff;}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:#222}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:#fff;box-shadow:0 4px 18px rgba(10,10,10,0.04)}
+    .brand{font-weight:700;color:var(--accent)}
+    nav a{margin-left:10px;text-decoration:none;color:var(--accent);font-weight:600}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:28px;max-width:1100px;margin:20px auto}
+    .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 8px 22px rgba(10,10,10,0.06);display:flex;flex-direction:column;gap:10px}
+    .product-img{height:180px;border-radius:10px;background-position:center;background-size:cover}
+    .title{font-weight:700}
+    .price{font-weight:800;color:var(--accent)}
+    .actions{margin-top:auto;display:flex;gap:8px}
+    .btn{padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700;border:1px solid rgba(139,94,60,0.08);background:#fff;color:var(--accent)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#b87c5a);color:#fff;border:0;box-shadow:0 8px 20px rgba(139,94,60,0.12)}
+    @media (max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      .grid{grid-template-columns:1fr;padding:16px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Clothify</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="payment.html">Payment</a>
+    </div>
+  </header>
+
+  <main>
+    <section style="max-width:1100px;margin:20px auto;padding:0 18px">
+      <h2 style="margin:8px 0">Featured Products</h2>
+      <p style="color:#666;margin-top:0">Click <strong>Buy</strong> to go to payment with the product selected.</p>
+    </section>
+
+    <section class="grid">
+      <!-- Product 1 -->
+      <div class="card">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop&s=placeholder')"></div>
+        <div class="title">Classic White Tee</div>
+        <div style="color:#666;font-size:.95rem">Cotton — Regular fit</div>
+        <div class="price">₹599</div>
+        <div class="actions">
+          <!-- link goes to payment.html with product query params -->
+          <a class="btn primary" href="payment.html?product=Classic%20White%20Tee&price=599">Buy Now</a>
+          <a class="btn" href="products.html#">Details</a>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="card">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1526178616594-0d4b0d7b4c72?q=80&w=1200&auto=format&fit=crop&s=placeholder')"></div>
+        <div class="title">Denim Jacket</div>
+        <div style="color:#666;font-size:.95rem">Premium denim — Unisex</div>
+        <div class="price">₹2,199</div>
+        <div class="actions">
+          <a class="btn primary" href="payment.html?product=Denim%20Jacket&price=2199">Buy Now</a>
+          <a class="btn" href="products.html#">Details</a>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="card">
+        <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1200&auto=format&fit=crop&s=placeholder')"></div>
+        <div class="title">Summer Dress</div>
+        <div style="color:#666;font-size:.95rem">Lightweight — Flowy</div>
+        <div class="price">₹1,299</div>
+        <div class="actions">
+          <a class="btn primary" href="payment.html?product=Summer%20Dress&price=1299">Buy Now</a>
+          <a class="btn" href="products.html#">Details</a>
+        </div>
+      </div>
+
+      <!-- add more product cards the same way -->
+    </section>
+  </main>
+</body>
+</html>
