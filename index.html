@@ -1,172 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S54RYKK4FN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clothify — Home</title>
+  <style>
+    :root{
+      --accent:#8b5e3c;
+      --muted:#f5efe9;
+      --text:#222;
+      --card:#ffffffdd;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    body{
+      color:var(--text);
+      background:
+        linear-gradient(135deg, rgba(139,94,60,0.08), rgba(255,255,255,0.02)),
+        url('https://images.unsplash.com/photo-1520975681030-1b962a43e5ae?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      box-sizing:border-box;
+    }
 
-  gtag('config', 'G-S54RYKK4FN', { 'debug_mode':true });
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crochet Creations</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('https://i.pinimg.com/736x/23/60/5b/23605bf2e6d44cac8a82cd624c2f1f4a.jpg'); 
-            background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #333;
-        }
+    .container{
+      width:100%;
+      max-width:1100px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.9));
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(20,20,20,0.12);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:0;
+    }
 
-        header {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
+    nav{
+      padding:20px 28px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{font-weight:700;color:var(--accent);font-size:1.35rem;letter-spacing:0.4px;}
+    .nav-links a{margin-left:8px;text-decoration:none;padding:8px 12px;border-radius:8px;color:var(--accent);font-weight:600}
+    .nav-links a:hover{background:var(--muted)}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 12px;
-        }
+    .hero{
+      padding:36px 44px;
+    }
+    .hero h1{margin:0;font-size:2.4rem;line-height:1.02}
+    .hero p{color:#4d4d4d;margin-top:10px;max-width:52ch}
+    .cta{margin-top:20px;display:flex;gap:12px}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;
+      background:linear-gradient(90deg,var(--accent),#b87c5a);color:#fff;
+      box-shadow:0 6px 18px rgba(139,94,60,0.18);
+    }
 
-        nav a {
-            color: #444;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    .side{
+      padding:28px;
+      background:linear-gradient(180deg,#fffefc, #fff);
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      align-items:center;
+      justify-content:center;
+    }
+    .promo{
+      background:var(--card);padding:18px;border-radius:14px;width:100%;text-align:center;
+      box-shadow:0 6px 16px rgba(10,10,10,0.06);
+    }
+    .promo h3{margin:0;color:var(--accent)}
+    footer{padding:18px 28px;background:#fff;border-top:1px solid #eee;text-align:center;font-size:0.9rem;color:#666}
 
-        .section {
-            background: rgba(255, 255, 255, 0.88);
-            margin: 40px auto;
-            padding: 30px;
-            width: 85%;
-            border-radius: 12px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .product {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .product img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .review {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.85);
-            font-size: 15px;
-            margin-top: 40px;
-        }
-    </style>
+    @media (max-width:940px){
+      .container{grid-template-columns:1fr; padding:0;}
+      .side{order:-1}
+    }
+  </style>
 </head>
 <body>
-
-<header>Crochet Creations</header>
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<!-- ABOUT -->
-<section id="about" class="section">
-    <h2>About</h2>
-    <p>
-        Welcome to Crochet Creations! Every piece you see here is handmade with love,
-        crafted carefully with vibrant colors and soft yarns. Whether you're looking
-        for home décor, cute accessories, or unique gifts — we create custom crochet
-        items just for you.
-    </p>
-</section>
-
-<!-- PRODUCTS -->
-<section id="products" class="section">
-    <h2>Our Crochet Products</h2>
-
-    <div class="products-grid">
-        <div class="product">
-            <img src="https://i.pinimg.com/736x/3d/2e/ef/3d2eef2f0ad43346620c3069fc9f7b20.jpg" alt="Crochet Toy">
-            <h3>Crochet Amigurumi</h3>
+  <div class="container" role="main">
+    <div>
+      <nav>
+        <div class="brand">Clothify</div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="payment.html">Payment</a>
         </div>
+      </nav>
 
-        <div class="product">
-            <img src="https://i.pinimg.com/736x/a4/60/8c/a4608ce5c1f550584d9a741b93d7c5b1.jpg" alt="Crochet Bag">
-            <h3>Crochet Tote Bag</h3>
+      <section class="hero">
+        <h1>Fresh styles — everyday prices</h1>
+        <p>Browse seasonal collections, curated outfits, and wardrobe essentials. Crafted for comfort and style.</p>
+        <div class="cta">
+          <a class="btn" href="products.html">Shop products</a>
+          <a class="btn" href="products.html#men" style="background:#fff;color:var(--accent);box-shadow:0 6px 16px rgba(0,0,0,0.06)">Men's</a>
         </div>
-
-        <div class="product">
-            <img src="https://i.pinimg.com/736x/1b/94/46/1b94460746a1a3c6ebbe097e24fa9bc1.jpg" alt="Crochet Coaster">
-            <h3>Crochet Coasters</h3>
-        </div>
-    </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews" class="section">
-    <h2>Reviews</h2>
-
-    <div class="review">
-        ⭐⭐⭐⭐⭐  
-        <p>"Absolutely loved the crochet doll! The details are perfect!" – Anusha</p>
+      </section>
     </div>
 
-    <div class="review">
-        ⭐⭐⭐⭐⭐  
-        <p>"Beautiful and neatly made products. I ordered twice already!" – Priya</p>
-    </div>
+    <aside class="side">
+      <div class="promo">
+        <h3>Free shipping over ₹1,499</h3>
+        <p style="margin-top:8px;color:#666">Limited time — use code <strong>WELCOME10</strong></p>
+      </div>
 
-    <div class="review">
-        ⭐⭐⭐⭐⭐  
-        <p>"Great quality and delivered on time. Highly recommended!" – Megha</p>
-    </div>
-</section>
+      <div style="text-align:center;color:#666;font-size:.9rem">
+        <strong>Need help?</strong><br>
+        <a href="mailto:help@clothify.example" style="color:var(--accent);text-decoration:none">help@clothify.example</a>
+      </div>
+    </aside>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>📩 Email: crochetcreations@gmail.com</p>
-    <p>📱 Instagram: @crochet_creations_official</p>
-    <p>🛍 Custom orders accepted!</p>
-</section>
-
-<footer>
-    &copy; 2025 Crochet Creations. All Rights Reserved.
-</footer>
-
+    <footer style="grid-column:1/-1">© Clothify — 2025</footer>
+  </div>
 </body>
 </html>
