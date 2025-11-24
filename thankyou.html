@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clothify — Thank you</title>
+  <style>
+    :root{--accent:#8b5e3c}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:#faf7f4;color:#222;display:flex;align-items:center;justify-content:center;height:100vh}
+    .card{background:#fff;padding:28px;border-radius:14px;box-shadow:0 10px 30px rgba(10,10,10,0.08);max-width:680px;text-align:center}
+    h1{margin:0;color:var(--accent)}
+    p{color:#555}
+    .details{margin-top:18px;text-align:left;background:#fbf8f6;padding:12px;border-radius:10px}
+    .back{display:inline-block;margin-top:16px;padding:10px 14px;border-radius:10px;text-decoration:none;background:linear-gradient(90deg,var(--accent),#b87c5a);color:#fff;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Thanks for your order!</h1>
+    <p id="msg">Your payment was received.</p>
+
+    <div class="details" id="infoBox">
+      <div><strong>Product:</strong> <span id="prod">—</span></div>
+      <div><strong>Amount:</strong> <span id="amt">—</span></div>
+      <div><strong>Name:</strong> <span id="buyer">—</span></div>
+      <div style="margin-top:8px;color:#666;font-size:.95rem"><strong>Delivery:</strong> We'll email tracking details to you soon.</div>
+    </div>
+
+    <a class="back" href="index.html">Back to Home</a>
+  </div>
+
+  <script>
+    const q = new URLSearchParams(window.location.search);
+    const product = q.get('product') || '';
+    const price = q.get('price') || '';
+    const name = q.get('name') || '';
+    const address = q.get('address') || '';
+
+    function decode(s){ try { return decodeURIComponent(s); } catch(e){return s;} }
+
+    document.getElementById('prod').textContent = product ? decode(product) : '—';
+    document.getElementById('amt').textContent = price ? '₹' + Number(price).toLocaleString('en-IN') : '—';
+    document.getElementById('buyer').textContent = name ? decode(name) : '—';
+
+    if(!product && !name){
+      document.getElementById('msg').textContent = 'Thanks — we received your submission.';
+    } else {
+      document.getElementById('msg').textContent = `Hi ${name ? decode(name) : 'Customer'}, your order is confirmed!`;
+    }
+  </script>
+</body>
+</html>
